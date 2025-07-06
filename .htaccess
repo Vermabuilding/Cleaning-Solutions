@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Redirect all HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} ^vermabuildings\.ca [NC]
+RewriteRule ^(.*)$ https://www.vermabuildings.ca/$1 [L,R=301]
